@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#06295a" />
+    <title>NurseShift AI</title>
+    <link rel="icon" href="./assets/nurseshift-ai-icon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-frame">
+      <aside class="nav-rail" aria-label="Navegação principal">
+        <div class="brand">
+          <div class="brand-line"><strong>NurseShift</strong><span>AI</span></div>
+          <p>Passagem de Plantão</p>
+        </div>
+
+        <nav class="menu">
+          <button class="active">⌂ Dashboard</button>
+          <button>♙ Pacientes</button>
+          <button>▤ Passagem de Plantão</button>
+          <button>☑ Pendências</button>
+          <button>⚑ Alertas</button>
+          <button>▣ Exames</button>
+          <button>▥ Relatórios</button>
+          <button>⚙ Preferências</button>
+        </nav>
+
+        <div class="user-card">
+          <div class="avatar">IA</div>
+          <div>
+            <strong>Italo Santos</strong>
+            <span>Enfermeiro · Online</span>
+          </div>
+        </div>
+
+        <div class="unit-chip">UTI Azul</div>
+      </aside>
+
+      <main class="content">
+        <section class="open-command" aria-label="Atalho para abrir NurseShift AI">
+          <div class="open-command-app">
+            <img src="./assets/nurseshift-ai-icon.svg" alt="" />
+            <div>
+              <strong>NurseShift AI</strong>
+              <span>Site</span>
+            </div>
+          </div>
+          <button id="openSiteCommand" class="open-command-button" type="button" aria-label="Abrir NurseShift AI em uma nova aba">
+            Abrir em
+            <span aria-hidden="true">⌄</span>
+          </button>
+        </section>
+
+        <header class="page-head">
+          <div>
+            <h1>Bom dia, Italo!</h1>
+            <p><strong>UTI Azul</strong><span>•</span><time id="humanDate"></time></p>
+          </div>
+
+          <div class="shift-actions" role="group" aria-label="Turno">
+            <span>Turno:</span>
+            <label><input type="radio" name="shift" value="Manhã" checked /> ☀ Manhã</label>
+            <label><input type="radio" name="shift" value="Tarde" /> ◒ Tarde</label>
+            <label><input type="radio" name="shift" value="Noite" /> ☾ Noite</label>
+            <input id="shiftDate" type="date" />
+          </div>
+        </header>
+
+        <section id="metrics" class="metrics" aria-label="Indicadores da UTI"></section>
+
+        <section class="patient-list panel">
+            <div class="panel-title">
+              <div>
+                <h2>Pacientes <span id="patientTotal">(0)</span></h2>
+              </div>
+              <button id="addPatient" class="square" title="Novo paciente" aria-label="Novo paciente">＋</button>
+            </div>
+
+            <div class="search-row">
+              <input id="smartSearch" type="search" placeholder="Buscar paciente ou leito..." />
+              <button id="runSearch" class="square" title="Filtrar" aria-label="Filtrar">⌕</button>
+            </div>
+
+            <div id="searchResults" class="search-results"></div>
+            <div id="patientCards" class="patient-cards"></div>
+            <button id="viewAllPatients" class="secondary wide">Ver todos os pacientes</button>
+        </section>
+
+        <section class="work-grid">
+          <section class="chart panel" aria-label="Dados do paciente">
+            <div id="patientHeader" class="patient-header"></div>
+            <nav id="tabs" class="tabs" aria-label="Abas clínicas"></nav>
+            <form id="patientForm" class="form-grid"></form>
+          </section>
+
+          <aside class="intelligence">
+            <section class="panel">
+              <div class="panel-title">
+                <h2>Resumo inteligente (IA)</h2>
+              </div>
+              <div id="aiAlerts" class="alert-list"></div>
+              <button id="generateHandoff" class="primary wide">Gerar passagem de plantão</button>
+            </section>
+
+            <section class="panel">
+              <div class="panel-title">
+                <h2>Pendências do paciente</h2>
+                <span id="pendingCount" class="count-pill">0</span>
+              </div>
+              <div id="patientPendingList" class="mini-list"></div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-title"><h2>Sinais vitais</h2></div>
+              <div id="vitalSigns" class="vitals"></div>
+            </section>
+          </aside>
+        </section>
+
+        <section class="handoff panel">
+          <div class="panel-title">
+            <h2>Passagem automatizada</h2>
+            <div class="export-actions">
+              <button id="copyHandoff">Copiar</button>
+              <button id="exportPdf">PDF</button>
+              <button id="exportWord">Word</button>
+              <button id="exportCsv">Planilha</button>
+              <button id="saveSnapshot">Salvar</button>
+            </div>
+          </div>
+          <textarea id="handoffText" aria-label="Texto da passagem de plantão"></textarea>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

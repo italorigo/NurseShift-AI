@@ -1,0 +1,17 @@
+{
+  "name": "NurseShift AI",
+  "short_name": "NurseShift",
+  "description": "Assistente inteligente para passagem de plantao em enfermagem de UTI.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f6f8fc",
+  "theme_color": "#06295a",
+  "icons": [
+    {
+      "src": "./assets/nurseshift-ai-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
